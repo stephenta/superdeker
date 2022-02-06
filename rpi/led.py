@@ -12,11 +12,11 @@ class LEDClass:
     def setupLeds(self):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
-        for led in sdUtil.LEDs:
-            GPIO.setup(sdUtil.LEDs[led], GPIO.OUT)
-            self.Pins.append(sdUtil.LEDs[led])
+        for pin in sdUtil.LEDs:
+            GPIO.setup(pin, GPIO.OUT)
+            self.Pins.append(pin)
 
-    def celebration(self, cycles: int):
+    def celebration(self, cycles):
         for i in range(cycles):
             for pin in self.Pins:
                 ledOn(pin)
@@ -24,8 +24,8 @@ class LEDClass:
                 ledOff(pin)
 
 
-def ledOn(pin: int):
+def ledOn(pin):
     GPIO.output(pin, GPIO.HIGH)
 
-def ledOff(pin: int):
+def ledOff(pin):
     GPIO.output(pin, GPIO.LOW)

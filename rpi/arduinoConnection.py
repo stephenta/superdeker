@@ -22,7 +22,7 @@ class ArduinoClass:
 
     def setupSensors(self):
         for sensor in sdUtil.ArduinoSensors:
-            sen = self.Board.digital[sdUtil.ArduinoSensors[sensor]]
+            sen = self.Board.digital[sensor]
             sen.mode = INPUT
             self.Sensors.append(sen)
 

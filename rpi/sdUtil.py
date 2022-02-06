@@ -1,16 +1,7 @@
 
 ArduinoPort = '/dev/ttyACM0'
 
-ArduinoSensors = {
-    'sen1': 7,
-    'sen2': 6,
-    'sen3': 5,
-    'sen4': 4
-}
+ArduinoSensors = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
-LEDs = {
-    'led1': 18,
-    'led2': 23,
-    'led3': 12,
-    'led4': 16
-}
+# LEDs = [18, 23, 12, 16, 19, 26, 20, 21, 6, 13]
+LEDs = [21, 20, 16, 12, 25, 26, 19, 13, 6, 5]
