@@ -1,5 +1,5 @@
 import time
-import sdUtil
+import game.sdUtil as sdUtil
 
 from pyfirmata import Arduino, util, INPUT
 

@@ -1,5 +1,5 @@
 from led import LEDClass, ledOn, ledOff
-import sdUtil
+import sdUtil as sdUtil
 import time
 
 

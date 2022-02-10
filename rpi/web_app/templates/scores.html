@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.username }}</td>
+                <td>{{ row.score }}</td>
+                <td>{{ row.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

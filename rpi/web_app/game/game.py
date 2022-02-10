@@ -1,5 +1,5 @@
-from arduinoConnection import ArduinoClass, waitForSensor
-from led import LEDClass, ledOn, ledOff
+from game.arduinoConnection import ArduinoClass, waitForSensor
+from game.led import LEDClass, ledOn, ledOff
 
 from random import randint
 from datetime import datetime
@@ -29,11 +29,11 @@ def pickSensorIndex():
     return randint(0, 9)
 
 
-def waitForPoint(index):
+def waitForPoint(index, arduino, led):
     # turn on led, wait for sensor to trigger, turn off led
-    ledOn(LED.Pins[index])
-    waitForSensor(ARDUINO.Sensors[index])
-    ledOff(LED.Pins[index])
+    ledOn(led.Pins[index])
+    waitForSensor(arduino.Sensors[index])
+    ledOff(led.Pins[index])
 
 
 def timeAttack():
@@ -43,7 +43,7 @@ def timeAttack():
     pass
 
 
-def pointRace():
+def pointRace(arduino, led):
     """
         Records time that it takes for a user to get 20 points.
     """
@@ -52,7 +52,7 @@ def pointRace():
     # first sensor - not in loop because need to set start time once
     # it is taken
     currentSensor = pickSensorIndex()
-    waitForPoint(currentSensor)
+    waitForPoint(currentSensor, arduino, led)
     startTime = datetime.now()
     userPoints += 1
     lastSensor = currentSensor
@@ -61,16 +61,16 @@ def pointRace():
         # pick a sensor
         while currentSensor == lastSensor:
             currentSensor = pickSensorIndex()
-        waitForPoint(currentSensor)
+        waitForPoint(currentSensor, arduino, led)
         userPoints += 1
         lastSensor = currentSensor
 
     userTime = datetime.now() - startTime
     print(userTime)
 
-    LED.celebration(5)
+    led.celebration(5)
 
-    pass
+    return userTime
 
 
 
@@ -82,13 +82,9 @@ def insaneMode():
     pass
 
 
-def main():
-    global ARDUINO, LED
-    ARDUINO = ArduinoClass()
-    LED = LEDClass()
-
-    pointRace()
+def play(arduino, led):
+    return pointRace(arduino, led)
     
 
 if __name__ == '__main__':
-    main()
+    play()

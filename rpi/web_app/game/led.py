@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import sdUtil
+import game.sdUtil as sdUtil
 
 
 class LEDClass:
@@ -22,6 +22,10 @@ class LEDClass:
                 ledOn(pin)
                 time.sleep(0.1)
                 ledOff(pin)
+
+    def clearLeds(self):
+        for pin in self.Pins:
+            ledOff(pin)
 
 
 def ledOn(pin):

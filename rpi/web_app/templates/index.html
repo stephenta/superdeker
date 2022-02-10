@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Superdeker Manager</title>
+        {{ turbo() }}
+    </head>
+    <body>
+        <div>
+            <div>Username: <input type=text/></div>
+            <br>
+            <a href="/start">Play</a>
+            {% include "status.html" %}
+        </div>
+        <br><br><br>
+        <div>
+            <a href="/recentscores">Recent Scores</a>
+            <br>
+            <a href="/highscores">High Scores</a>
+            <br>
+            <a href="/allscores">All Scores</a>
+        </div>
+    </body>
+</html>
